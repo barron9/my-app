@@ -4,7 +4,7 @@
 
 .App-logo {}
 
-.App-header {  background-color:white;
+.App-header {  background-color: #333;
  }
 
 .App-link {
