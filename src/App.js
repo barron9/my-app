@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Line,Bar} from 'react-chartjs-2';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const data = {
   labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 
@@ -43,6 +44,10 @@ const data2 = {
     }
   ]
 };
+const About = () => <h2>About</h2>;
+
+const Home = () => <h2>Home</h2>;
+
 class App extends Component {
   displayName: 'LineExample'
 	
@@ -50,6 +55,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+
+	      <Router>
+    <div>
+
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About}  />
+      <Route path="/topics"/>
+    </div>
+  </Router>
         
  <div>
         <h2>Line Example</h2>
