@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {Line,Bar} from 'react-chartjs-2';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PhoneInput from 'react-phone-number-input/react-responsive-ui'
+import 'react-phone-number-input/style.css'
 
 const data = {
   labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 
@@ -50,7 +52,10 @@ const Home = () => <h2>Home</h2>;
 
 class App extends Component {
   displayName: 'LineExample'
-	
+	constructor(props) {
+    super(props);
+    this.state = {phone:''};
+  }
   render() {
     return (
       <div className="App">
@@ -66,6 +71,10 @@ class App extends Component {
   </Router>
         
  <div>
+<PhoneInput 
+	    placeholder="Enter phone number"
+    value={ this.state.phone }
+    onChange={ phone => this.setState({ phone }) } />
         <h2>Line Example</h2>
         <Line data={data} />
       </div>
